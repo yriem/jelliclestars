@@ -1,0 +1,868 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: none;
+font-style: normal;
+text-align: left;
+zoom: 1;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+table {
+border-collapse: collapse;
+font-family: inherit;
+}
+h1,h2,h3,h4,h5 {
+font-size: 100%;
+font-weight: normal;
+line-height: 1;
+}
+input,textarea,select {
+font-family: inherit;
+font-size: 16px;
+}
+input[type="button"],input[type="text"],input[type="submit"] {
+ -webkit-appearance: none;
+ border-radius: 0;
+}
+textarea {
+resize: none;
+-webkit-appearance: none;
+border-radius: 0;
+}
+th,td {
+border-collapse: collapse;
+}
+table th,table td {
+white-space: nowrap;
+}
+ul,ol {
+list-style-type: none;
+}
+img {
+vertical-align: text-bottom;
+vertical-align: -webkit-baseline-middle;
+max-width: 100%;
+height: auto;
+width /***/:auto;
+}
+
+/**--------------------こ--こ--か--ら！-------------------**/
+
+body{
+    font-family:Tsukushi A Round Gothic;
+    color : #331e03;
+    line-height: 1.7;
+    background-color: #fffcfa;
+  }
+
+a {
+    text-decoration: none;
+  }
+
+header {
+    background-image: url(../img/rainbowflower2.png);
+    width: 100%;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.header {
+    display: flex;
+}
+
+
+.header img.numero-pic {
+    width: 45%;
+    height: auto;
+    left: 45%;
+    top: 130px;
+    position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+    .header img.numero-pic {
+        width: 300px;
+        height: auto;
+        left: 55%;
+        top: 130px;
+        position: absolute;
+    }
+}
+
+@media (max-width: 659px){
+    .header img.numero-pic  {
+        width: 70%;
+        height: auto;
+        left: 30%;
+        top: 130px;
+        position: absolute;  
+    }
+ }
+
+
+ .logo_sp {
+    display: none;
+    max-width: 210px;
+    height: auto;
+	position:fixed;
+    top: 26px;
+	left: 10px	
+}
+
+@media screen and (max-width: 937px) {
+    h1.logo_sp {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 937px) {
+    h1.logo img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 937px) {
+    h1.logo {
+        display: none;
+    }
+}
+
+/* ロゴに関するスタイル */
+
+.js-header.-after {
+    display : none;
+}
+.js-header.-before.headerColorScroll {
+    display: none;
+}
+.js-header.-after.headerColorScroll {
+    display: block;
+}
+
+/*------  メニュー  ------*/
+
+button #nav {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+::before , ::after {
+	box-sizing: inherit;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	vertical-align: middle;
+	text-align: inherit;
+	font: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+/**************** 以下、ハンバーガーボタンのスタイリング ****************/
+.btn {
+	/* ボタンの配置位置  */
+	position: fixed;
+	top: 32px;
+	right: 16px;
+	/* 最前面に */
+    z-index: 100;
+	/* ボタンの大きさ  */
+	width: 30px;
+	height: 30px;
+}
+/***** 真ん中のバーガー線 *****/
+.btn-line {
+	display: block;
+	/* バーガー線の位置基準として設定 */
+	position: relative;
+	/* 線の長さと高さ */
+	width: 100%;
+	height: 3px;
+	/* バーガー線の色 */
+	background-color: gray;
+	transition: .2s;
+}
+/***** 上下のバーガー線 *****/
+.btn-line::before , .btn-line::after {
+	content: "";
+	/* 基準線と同じ大きさと色 */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	transition: .5s;
+}
+.btn-line::before {
+	/* 上の線の位置 */
+	transform: translateY(-16px);
+}
+.btn-line::after {
+	/* 下の線の位置 */
+	transform: translateY(16px);
+}
+/***** メニューオープン時 *****/
+.btn-line.open {
+	/* 真ん中の線を透明に */
+	background-color: transparent;
+}
+.btn-line.open::before , .btn-line.open::after {
+	content: "";
+	background-color: gray;
+	transition: .2s;
+}
+.btn-line.open::before {
+	/* 上の線を傾ける */
+	transform: rotate(45deg);
+}
+.btn-line.open::after {
+	/* 上の線を傾ける */
+	transform: rotate(-45deg);
+}
+/**************** ここまで、ハンバーガーボタンのスタイリング ****************/
+/**************** 以下、メニューのスタイリング ****************/
+
+.menu {
+	position: fixed;
+	/* メニューを縦に */
+	display: flex;
+	flex-direction: column;
+	/* メニューの位置マイナス指定で画面外に */
+	right: -100%;
+    top: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255,0.93);
+	color: #efefef;
+	transition: .3s;
+    z-index: 90;
+}
+
+@media (max-width: 937px){
+    .menu  {
+		padding-top:100px;
+		font-size:20px;
+    }
+}
+
+.menu-list {
+	/* メニューテキスト位置をリスト内中心に */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+    height: 100%;
+    color: #333;
+}
+
+@media (max-width: 937px) {
+.menu-list {
+    height: 13%;
+}
+}
+
+
+.menu-list:hover {
+	background-color: rgba(255, 255, 255, .1);
+	color: #333;
+	cursor: pointer;
+	transition: .3s;
+    transform: translateY(-5px);
+}
+
+.menu-list img {
+    padding-left: 20px;
+}
+
+@media (min-width: 767px){
+    .menu-list img  {
+        width: 250px;
+    }
+}
+
+.menu-list a {
+    color: #331e03;
+}
+
+/***** メニューオープン時位置0にして画面内に *****/
+.menu.open {
+	right: 0;
+}
+/* 600px以上はハンバーガーボタン非表示、ヘッダー固定 */
+@media screen and (min-width: 937px) {
+	.btn {
+		display: none;
+	}
+	.menu {
+		/* メニューを横に */
+		display: flex;
+		flex-direction: row;
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100px;
+	}
+}
+
+@media (min-width: 937px){
+    #nav {
+        width: 100%;
+        display: flex;
+        position: fixed;
+		z-index:150;
+    }
+    }
+    
+    @media (min-width: 937px){
+    #nav .menu {
+        display: flex;
+        flex-direction: row;
+        width: 75%;
+        height: 90px;
+    }
+    }
+    
+    @media (min-width: 937px){
+    #nav .logo a {
+        display: block;
+    }
+    }
+    
+    @media (min-width: 937px){
+    #nav .logo a img {
+        width: 225px;
+        height: auto;
+        margin:15px;
+    }
+    }
+/**************** ここまで、メニューのスタイリング ****************/
+
+.numero-check {
+    text-align: center;
+}
+
+.midashi-numero {
+    display: inline-flex;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+@media (max-width: 425px){
+    .midashi-numero {
+        margin-top: 70px;
+}
+    }
+
+.midashi-numero h2 {
+    margin: 30px 30px;
+    font-size: 23px;
+    text-align: center;
+}
+
+@media (max-width: 425px){
+    .midashi-numero h2 {
+    margin: 15px 0px;
+    font-size: 18px;
+    text-align: center;
+}
+    }
+
+.midashi-numero span {
+    font-size: 15px;
+}
+
+.midashi-numero img {
+    width: 45px;
+	
+}
+
+@media (max-width: 425px){
+    .midashi-numero img  {
+		width: 30px;
+		padding:0px 10px;
+}
+    }
+
+.keisan {
+    font-size: 19px;
+    letter-spacing: 1px;
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.keisan p {
+    padding: 20px 0 15px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .keisan p {
+        font-size: 16px;
+        text-align: left;
+    }
+}
+
+.birthday p {
+    max-width: 60%;
+    text-align: right;
+}
+
+.birthday span {
+    font-weight: bold;
+    color: #cf52a4;
+    font-size: 25px;
+}
+
+.my-numero {
+    max-width: 80%;
+    margin: 0 auto;
+    padding:  10px;
+}
+
+.my-numero1 {
+    padding-top: 50px;
+    display: flex;
+    margin: 0 auto;
+}
+
+@media (max-width: 425px){
+    .my-numero1   {
+        padding-top: 50px;   
+    }
+ }
+
+ .my-numero1 ul {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+    .my-numero1 ul  {
+        max-width: 90%;   
+    }
+ }
+
+.my-numero1 li {
+    margin: 15px 15px;
+}
+
+@media (max-width: 768px){
+    .my-numero1 li  {
+        margin: 5px;
+    }
+}
+
+.my-numero1 img {
+    width: 250px;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .my-numero1 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.my-numero2 {
+    display: flex;
+    margin: 0 auto;
+}
+
+.my-numero2 ul {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+    .my-numero2 ul  {
+        max-width: 90%;   
+    }
+ }
+
+.my-numero2 li {
+    margin: 15px 15px;
+}
+
+@media (max-width: 768px){
+    .my-numero2 li  {
+        margin: 5px;
+    }
+}
+
+.my-numero2 img {
+    width: 250px;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .my-numero2 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.my-numero3 {
+    display: flex;
+    margin: 0 auto;
+}
+
+.my-numero3 ul {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+    .my-numero3 ul  {
+        max-width: 90%;   
+    }
+ }
+
+.my-numero3 li {
+    margin: 15px 15px;
+}
+
+@media (max-width: 768px){
+    .my-numero3 li  {
+        margin: 5px;
+    }
+}
+
+.my-numero3 img {
+    width: 250px;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .my-numero3 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.my-numero4 {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+.my-numero4 ul {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+    .my-numero4 ul  {
+        max-width: 90%;   
+    }
+ }
+
+.my-numero4 li {
+    margin: 15px 15px;
+}
+
+@media (max-width: 768px){
+    .my-numero4 li  {
+        margin: 5px;
+    }
+}
+
+.my-numero4 img {
+    width: 250px;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .my-numero4 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+.linefriend {
+    font-size: 18px;
+    display: flex;
+    padding-bottom: 30px;
+    background: #caf0dc;
+    border-radius: 30px;
+    display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+    margin-bottom: 200px;
+    justify-content: space-between;
+}
+
+@media (max-width: 850px){
+    .linefriend {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        max-width:70%;
+    }
+}
+
+.phonepic img {
+    height: auto;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 860px){
+    .phonepic img  {display:none}
+}
+
+.linemessage {
+    padding: 30px;/*←余白を付けたいなら、ここでpadding設定*/
+}
+
+@media screen and (max-width: 860px){
+    .linemessage {display:none}
+    }
+
+.linemessage img {
+    height: auto;
+    width: 200px;
+}
+
+.present {
+    font-size: 20px;
+    width: 80%;
+    text-align: center;
+    flex: 1;
+}
+
+@media (max-width: 768px){
+    .present {
+        font-size: 15px;
+        width: 40%;
+    }
+}
+
+@media (max-width: 425px){
+    .present {
+	margin: 0 auto;
+	margin-bottom: 30px;
+    }
+}
+
+.linefriend .theme {
+    font-size: 18px;
+    display: flex;
+}
+
+.linefriend a {
+    font-size: 20px;
+    background-color: #06c755;
+    color: white;
+    border-radius: 30px;
+    padding: 30px 45px;
+    letter-spacing: 0.1px;
+    box-shadow: 2px 4px 5px #a5a9aa;
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    max-width: 205px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px){
+    .linefriend a {
+        width: 180px;
+        height: 60px;
+        padding: 15px;
+
+    }
+    }
+
+
+.linefriend a:hover {
+        background: #06db55;
+        color: #fff;
+    
+}
+
+.linefriend .button-col {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.linefriend p {
+    text-align: center;
+    margin: 40px 0px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px){
+    .linefriend p {
+        font-size: 14px;
+    }
+}
+
+
+.foot-wrap {
+    margin-top: 80px;
+    background-color: #9fd6d3;
+    color: #331e03;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    .foot-wrap {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 425px){
+    .foot-wrap {
+        margin-top: 10px;
+    }
+}
+
+.foot-wrap a {
+    background: #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 425px){
+    .foot-wrap a  {
+    height: 50px;
+    width: 50px;
+    }
+}
+
+.foot-wrap p {
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px){
+    .foot-wrap p {
+        padding-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 425px){
+    .foot-wrap p  {
+		font-size: 12px;
+		max-width: 80%;
+		margin: 0 auto;
+		padding-bottom: 20px;
+    }
+}
+
+.foot-wrap img {
+    height: 50px;
+    width: 50px;
+}
+
+@media (max-width: 425px){
+    .foot-wrap img  {
+    height: 35px;
+    width: 35px;
+    }
+}
+
+.sns-icon {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px){
+    .sns-icon  {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 425px){
+    .sns-icon  {
+    max-width: 200px;
+    }
+}
+
+.sns-icon a {
+    transition-duration: .4s;
+  }
+  .sns-icon a:hover {
+    transform: scale(1.1);
+  }
+
+.bottom-message p{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 28px;
+}
+
+@media (max-width: 768px){
+    .bottom-message p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 425px){
+    .bottom-message p  {
+		font-size: 16px;
+
+    }
+}
+
+.credit p {
+    text-align: center;
+}
+
+@media (max-width: 425px){
+    .credit p   {
+		font-size: 10px;
+		padding: 0 ;
+		margin-bottom:13px;
+    }
+}
